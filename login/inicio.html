@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Usuario</title>
+</head>
+<body>
+  <h1 id="username-title"></h1>
+
+  <script>
+    // Código JavaScript para manejar la carga de la página
+    document.addEventListener('DOMContentLoaded', async () => {
+      const pathArray = window.location.pathname.split('/');
+      const username = pathArray[pathArray.length - 1];
+
+      // Actualiza el título con el nombre de usuario
+      document.getElementById('username-title').textContent = `Bienvenido, ${username}!`;
+    });
+  </script>
+</body>
+</html>

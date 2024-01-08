@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <!-- Agrega las librerías de autenticación de Google y Twitter -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8HA8nQZ5RWxvLELUrrDLXUcALJW5GkwI",
+  authDomain: "furrtown-06660.firebaseapp.com",
+  projectId: "furrtown-06660",
+  storageBucket: "furrtown-06660.appspot.com",
+  messagingSenderId: "614423480347",
+  appId: "1:614423480347:web:7c727c76892b2e10b290be",
+  measurementId: "G-0XMECYNLPD"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      // Configura el botón de inicio de sesión de Twitter
+      window.twttr.ready(function () {
+        window.twttr.widgets.createSignInButton(
+          'twitter-btn-container',
+          {
+            size: 'large',
+            authComplete: function (result) {
+              // Maneja la respuesta de autenticación de Twitter
+              const { oauth_token, oauth_token_secret } = result;
+              signInWithTwitter(oauth_token, oauth_token_secret);
+            },
+          }
+        );
+      });
+
+      // Función para iniciar sesión con Twitter en Firebase
+      function signInWithTwitter(token, secret) {
+        const credential = firebase.auth.TwitterAuthProvider.credential(token, secret);
+
+        // Inicia sesión con Twitter en Firebase
+        firebase.auth().signInWithCredential(credential)
+          .then((userCredential) => {
+            // Usuario autenticado correctamente
+            const user = userCredential.user;
+            console.log('Usuario autenticado:', user);
+          })
+          .catch((error) => {
+            // Maneja errores de autenticación
+            console.error('Error de autenticación con Twitter:', error);
+          });
+      }
+    </script>
+
+  </head>
+<body>
+    <div id="contenedor">
+        <div id="izquierdo">
+            <div class="degradado"></div>
+            <img src="../public/logo.png" alt="Logo" class="logo">
+            <img src="../public/banner.png" alt="Imagen">
+        </div>
+        <div id="derecho">
+            <div class="formulario">
+               <h1 class="titulo-seas">Hi</h1>
+              <h1 class="titulo-formulario">Barbie!</h1>
+              <!-- Agrega botones de inicio de sesión de Google y Twitter -->
+              <!-- Agrega botones de inicio de sesión de Google y Twitter con estilo -->
+              <div class="boton-google" onclick="iniciarSesionGoogle()">
+                  <img src="../public/google-icon.png" alt="Google Icon" class="icono-boton">
+                  <span>Iniciar sesión con Google</span>
+              </div>
+              <div class="boton-x" onclick="iniciarSesionTwitter()"> <div id="twitter-btn-container"></div>
+
+                  <img src="../public/x-icon.png" alt="Twitter Icon" class="icono-boton">
+                  <span>Iniciar sesión con X (Twitter)</span>
+              </div>
+              
+              <p class="registro">Les boutons sont également utilisés pour l'enregistrement.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'TwitterFont';
+    src: url('../fonts/chirp-extended-heavy-web.woff2') format('woff2'), /* Cambia la ruta y el formato según el tipo de archivo que tengas */
+         url('../fonts/chirp-extended-heavy-web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Normal';
+    src: url('../fonts/chirp-bold-web.woff2') format('woff2'), /* Cambia la ruta y el formato según el tipo de archivo que tengas */
+         url('../fonts/chirp-bold-web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'medio';
+    src: url('../fonts/chirp-medium-web.woff2') format('woff2'), /* Cambia la ruta y el formato según el tipo de archivo que tengas */
+         url('../fonts/chirp-medium-web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 150%;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+    outline: none;
+    font-size: 14px;
+    font-family: 'medio', sans-serif;
+}
+
+
+.header-sections {
+    display: flex;
+    gap: 15px;
+    font-family: 'Normal', sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.tweet-button {
+    background-color: #616161;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-right: 20px; /* Añadido margen izquierdo para separar del botón anterior */
+  font-family: 'TwitterFont', sans-serif;
+}
+
+.section {
+    cursor: pointer;
+}
+
+.options-button {
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: auto; /* Mueve el botón de opciones al extremo derecho */
+}
+
+.content {
+    padding: 20px;
+}
